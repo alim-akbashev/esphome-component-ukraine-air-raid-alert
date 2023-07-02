@@ -11,14 +11,13 @@ provided by https://api.ukrainealarm.com/.
 
 ## Status
 
-* The component currently works on esp8266 devices. Support for esp32 is planned but not yet implemented.
+* The component currently works on both esp8266 and esp32 devices.
 *  It has been tested with esphome@2023.6.3 and is expected to work with previous versions as well,
 but extensive testing hasn't been performed :)
 
 ## Example
 
-For an example configuration, refer to the [air-raid-alert.yaml.example](air-raid-alert.yaml.example)
-and [secrets.yaml.example](secrets.yaml.example).
+For an example configuration, refer to the [air-raid-alert.yaml.example](air-raid-alert.yaml.example) or [air-raid-alert-esp32.yaml.example](air-raid-alert-esp32.yaml.example) and [secrets.yaml.example](secrets.yaml.example).
 
 Feel free to ask any questions or provide feedback if needed.
 

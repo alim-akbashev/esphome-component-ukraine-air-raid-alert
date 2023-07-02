@@ -2,8 +2,15 @@
 
 #include "esphome/core/component.h"
 #include "esphome/components/binary_sensor/binary_sensor.h"
+
+#ifdef USE_ESP32
+#include <HTTPClient.h>
+#endif
+#ifdef USE_ESP8266
+#include <ESP8266HTTPClient.h>
 #include <WiFiClientSecure.h>
-#include "ESP8266HTTPClient.h"
+#endif
+
 
 namespace esphome {
 namespace air_raid_alert {
@@ -31,12 +38,11 @@ class AirRaidAlert : public PollingComponent, public binary_sensor::BinarySensor
     int region_id_;
     char endpoint_[64];
 
+    HTTPClient http{};
 #ifdef USE_ESP8266
-  std::shared_ptr<BearSSL::WiFiClientSecure> wifi_client_secure_;
-  std::shared_ptr<BearSSL::WiFiClientSecure> get_wifi_client_();
+    std::shared_ptr<BearSSL::WiFiClientSecure> wifi_client_secure_;
+    std::shared_ptr<BearSSL::WiFiClientSecure> get_wifi_client_();
 #endif
-    HTTPClient http = HTTPClient();
-    WiFiClientSecure wifi = BearSSL::WiFiClientSecure();
 };
 
 }

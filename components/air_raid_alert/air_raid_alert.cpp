@@ -5,7 +5,11 @@ namespace esphome {
 namespace air_raid_alert {
 
   void AirRaidAlert::update() {
+#if defined(USE_ESP32)
+    this->http.begin(this->endpoint_);
+#elif defined(USE_ESP8266)
     this->http.begin(*this->get_wifi_client_(), this->endpoint_);
+#endif
     this->http.addHeader("Authorization", this->token_);
     this->http.addHeader("Accept", "application/json");
     int http_code = this->http.GET();
