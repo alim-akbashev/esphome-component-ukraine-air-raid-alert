@@ -53,7 +53,7 @@ binary_sensor:
   name: "Air Raid Alert Active"
   id: ods
   token: !secret air_raid_alert_api_token
-  region_id: 18
+  region_id: 18 # you can reach the list of regions at https://api.ukrainealarm.com/api/v3/regions (token is required, more details https://api.ukrainealarm.com/swagger/index.html)
   device_class: safety
   on_press:
     then:
